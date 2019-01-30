@@ -3,16 +3,9 @@ defmodule KV do
   Documentation for KV.
   """
 
-  @doc """
-  Hello world.
+  use Application
 
-  ## Examples
-
-      iex> KV.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def start(_type, _args) do
+    KV.Supervisor.start_link(name: KV.Supervisor)
   end
 end
